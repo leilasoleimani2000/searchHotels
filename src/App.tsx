@@ -31,7 +31,7 @@ function App() {
 
   const onSelectHotel = (hotel: Hotels) => {
     fetchSelected(hotel);
-    console.log(selectedItem);
+    console.log(selectedItem);    
     
   } 
 
