@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import ResultList from './components/ResultList/ResultList';
 import SearchBox from './components/SearchBox/SearchBox';
+import SelectedList from './components/SelectedList/SelectedList';
 import useDebouncedCallback from './hooks/useDebouncedCallback';
 import useFetchData from './hooks/useFetchData';
 import useSelectedItem from './hooks/useSelectedItem';
+import IDetail from './models/Details';
 import Hotels from './models/Hotels';
 
 function App() {
@@ -12,6 +14,7 @@ function App() {
   const debouncedFetchData = useDebouncedCallback(getData);
   const { data, fetchData, clearData } = useFetchData();
   const {selectedItem, fetchSelected} = useSelectedItem();
+  const [selectedList, setSelectedList] = useState<IDetail[]>([]);
 
 
   useEffect(() => {
@@ -28,7 +31,10 @@ function App() {
 
   const onSelectHotel = (hotel: Hotels) => {
     fetchSelected(hotel);
-    // console.log(selectedItem);
+
+    // setSelectedList([...selectedList])
+  
+    console.log(selectedItem);
     
   }
 
@@ -41,6 +47,7 @@ function App() {
       <main>
         <SearchBox onChange={(term) => setTerm(term)}/>
         <ResultList data={data}  onSelectItem={onSelectHotel}/>
+        <SelectedList/>
       </main>
     </div>
   );
