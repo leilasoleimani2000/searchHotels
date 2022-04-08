@@ -45,7 +45,7 @@ function App() {
         <SearchBox onChange={(term) => setTerm(term)}/>
         <ResultList data={data}  onSelectItem={onSelectHotel}/>
         <SelectedList/>
-      </main>
+      </main>   
     </div>
   );
 }
