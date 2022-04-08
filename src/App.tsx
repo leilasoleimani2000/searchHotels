@@ -33,7 +33,7 @@ function App() {
     fetchSelected(hotel);
     console.log(selectedItem);
     
-  }
+  } 
 
 
   return (
